@@ -1,1 +1,506 @@
+```html
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSF Perumalabad Unit - Book Test 2026 Portal</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Manrope & Noto Sans Malayalam) -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Noto+Sans+Malayalam:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- html5-qrcode library for QR scanning -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Manrope', 'Noto Sans Malayalam', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: radial-gradient(circle at top, #0f172a 0%, #020617 100%);
+            min-height: 100vh;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        #reader video {
+            border-radius: 0.75rem;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="text-slate-100 font-sans flex flex-col justify-between min-h-screen">
 
+    <!-- Header / Navbar -->
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-500 flex items-center justify-center font-black text-white text-xl shadow-lg shadow-brand-500/20 overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/d/1dzGtT_B1PV4yX2wP2ClQDwjSfYJ6I53r" alt="SSF Logo" class="w-full h-full object-cover" onerror="this.onerror=null; this.parentNode.innerHTML='S';">
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-sm sm:text-base tracking-tight text-white leading-tight">BOOK TEST 2026</h1>
+                    <p class="text-[11px] text-brand-400 font-semibold tracking-wide uppercase">SSF PERUMALABAD UNIT</p>
+                </div>
+            </div>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                ലഭ്യമാണ്
+            </span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 w-full flex-grow">
+        
+        <!-- Hero Banner Card -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 mb-8 text-center relative overflow-hidden shadow-2xl">
+            <!-- Decorative Accent -->
+            <div class="absolute -top-24 -left-24 w-48 h-48 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-500/10 text-brand-400 border border-brand-500/20 inline-block mb-4">
+                ബുക്ക് ടെസ്റ്റ് 2026
+            </span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-2 leading-tight">
+                ശൈഖ് ജീലാനി (റ)
+            </h2>
+            <p class="text-slate-400 text-xs sm:text-sm font-medium mb-6">
+                രചന: സയ്യിദ് സ്വലാഹുദ്ദീൻ ബുഖാരി
+            </p>
+
+            <!-- Shaikh Jeelani (r) 10 Facts Slider -->
+            <div class="mb-6 bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 max-w-lg mx-auto text-left relative overflow-hidden shadow-lg">
+                <div class="flex items-center justify-between mb-3 border-b border-slate-800 pb-2">
+                    <span class="text-[11px] font-bold text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+                        <i class="fa-solid fa-book-open text-emerald-400"></i> ശൈഖ് ജീലാനി (റ): പ്രധാന വിവരങ്ങൾ
+                    </span>
+                </div>
+                
+                <div class="min-h-[64px] flex items-center justify-center text-center py-1">
+                    <p id="fact-text" class="text-xs sm:text-sm text-slate-200 font-medium leading-relaxed transition-opacity duration-500 opacity-100">
+                        <!-- Dynamic Slider Content -->
+                    </p>
+                </div>
+            </div>
+
+            <!-- Countdown Timer Container -->
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 sm:p-6 mb-6 shadow-inner max-w-lg mx-auto">
+                <p class="text-xs uppercase font-bold text-slate-400 mb-3 tracking-wider flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-clock text-brand-400"></i>
+                    ഓൺലൈൻ ടെസ്റ്റ് ആരംഭിക്കാൻ ഇനി:
+                </p>
+                <div class="grid grid-cols-4 gap-2 sm:gap-4 text-center" id="countdown-timer">
+                    <div class="bg-slate-800/80 p-2.5 sm:p-3 rounded-xl border border-slate-700/60">
+                        <span id="days" class="block text-2xl sm:text-4xl font-black text-brand-400">00</span>
+                        <span class="text-[10px] sm:text-xs text-slate-400 font-semibold uppercase">ദിവസം</span>
+                    </div>
+                    <div class="bg-slate-800/80 p-2.5 sm:p-3 rounded-xl border border-slate-700/60">
+                        <span id="hours" class="block text-2xl sm:text-4xl font-black text-brand-400">00</span>
+                        <span class="text-[10px] sm:text-xs text-slate-400 font-semibold uppercase">മണിക്കൂർ</span>
+                    </div>
+                    <div class="bg-slate-800/80 p-2.5 sm:p-3 rounded-xl border border-slate-700/60">
+                        <span id="minutes" class="block text-2xl sm:text-4xl font-black text-brand-400">00</span>
+                        <span class="text-[10px] sm:text-xs text-slate-400 font-semibold uppercase">മിനിറ്റ്</span>
+                    </div>
+                    <div class="bg-slate-800/80 p-2.5 sm:p-3 rounded-xl border border-slate-700/60">
+                        <span id="seconds" class="block text-2xl sm:text-4xl font-black text-emerald-400">00</span>
+                        <span class="text-[10px] sm:text-xs text-slate-400 font-semibold uppercase">സെക്കൻഡ്</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Status / Action Box -->
+        <div id="quiz-status-box" class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs sm:text-sm font-semibold max-w-lg mx-auto flex items-center justify-center gap-3">
+            <i class="fa-solid fa-lock text-base text-amber-400"></i>
+            <span>ഓൺലൈൻ ടെസ്റ്റ് ലിങ്ക് <strong>ഒക്ടോബർ 15 വ്യാഴാഴ്ച രാത്രി 8:00 മണിക്ക്</strong> ഇവിടെ ലഭ്യമാകുന്നതാണ്.</span>
+        </div>
+    </div>
+
+    <!-- Two Column Details Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- QR Scanner Box -->
+            <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 backdrop-blur-sm">
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2.5 rounded-xl bg-brand-500/10 text-brand-400">
+                            <i class="fa-solid fa-qrcode text-lg"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-200">ഹാൾ ടിക്കറ്റ് ക്യു.ആർ സ്കാനർ</h3>
+                    </div>
+                    <button onclick="toggleScanner()" id="scanner-toggle-btn" class="text-xs bg-brand-600 hover:bg-brand-500 text-white px-3.5 py-2 rounded-xl transition-all font-semibold shadow-md">
+                        <i class="fa-solid fa-camera mr-1.5"></i> Scan QR Ticket
+                    </button>
+                </div>
+                <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+                    ഹാൾ ടിക്കറ്റിലെ ക്യു.ആർ കോഡ് സ്കാൻ ചെയ്തുകൊണ്ട് വിദ്യാർത്ഥിയുടെ രജിസ്ട്രേഷൻ വിവരങ്ങൾ തത്സമയം പരിശോധിക്കുക.
+                </p>
+
+                <!-- Camera Scanner Container (Hidden by default) -->
+                <div id="qr-reader-container" class="hidden mb-4 overflow-hidden rounded-xl border border-slate-700 bg-slate-900 p-2">
+                    <div id="reader" style="width: 100%;"></div>
+                    <button onclick="stopScanner()" class="mt-2 w-full bg-rose-600/80 hover:bg-rose-600 text-white text-xs py-2 rounded-lg font-semibold transition-all">
+                        Close Camera
+                    </button>
+                </div>
+                
+                <!-- Verification Result Card -->
+                <div id="user-id-msg" class="text-xs">
+                    <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-700/60 text-slate-400 text-center italic">
+                        <i class="fa-solid fa-id-card text-2xl text-slate-600 mb-2 block"></i>
+                        ക്യു.ആർ സ്കാൻ ചെയ്യുമ്പോൾ വിദ്യാർത്ഥിയുടെ ഹാൾ ടിക്കറ്റ് കാർഡ് ഇവിടെ തെളിയും.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Notes -->
+            <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 backdrop-blur-sm flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-400">
+                            <i class="fa-solid fa-triangle-exclamation text-lg"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-200">പ്രധാന നിർദ്ദേശങ്ങൾ</h3>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2.5 list-disc list-inside leading-relaxed">
+                        <li>നിങ്ങൾക്ക് ലഭിച്ച ഹാൾ ടിക്കറ്റിലെ ക്യു.ആർ കോഡ് സ്കാൻ ചെയ്ത് രജിസ്ട്രേഷൻ ഉറപ്പാക്കുക.</li>
+                        <li>ഓൺലൈൻ ടെസ്റ്റ് ഒക്ടോബർ 15 വ്യാഴാഴ്ച കൃത്യം 8:00 മണിക്ക് ആരംഭിക്കും.</li>
+                        <li>ഓഫ്‌ലൈൻ ടെസ്റ്റ് ഒക്ടോബർ 17 ശനിയാഴ്ച വൈകുന്നേരം 3:00 മണിക്ക് <strong>മദ്റസത്തുൽ ഈമാൻ, ഇടക്കോം</strong> വേദിയിൽ നടക്കും.</li>
+                        <li>സഹായങ്ങൾക്ക് തന്നിരിക്കുന്ന ഹെൽപ്പ് ലൈൻ നമ്പറിൽ ബന്ധപ്പെടുക.</li>
+                    </ul>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                    <span class="text-slate-400">സഹായത്തിന് ബന്ധപ്പെടുക:</span>
+                    <a href="tel:7510645137" class="font-bold text-brand-400 hover:underline flex items-center gap-1.5">
+                        <i class="fa-solid fa-phone"></i> 7510645137
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-900/80 py-4 mt-8">
+        <div class="max-w-4xl mx-auto px-4 text-center text-xs text-slate-500">
+            <p>© 2026 SSF PERUMALABAD UNIT. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Data Feed Endpoint (Google Sheet CSV Exporter)
+        const sheetId = "1OdJB9UhFBaKwl_QTBEr8jn5wqAyuNCxlNsrARjemGBk";
+        const sheetCsvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&gid=0`;
+
+        // 10 Key Facts about Shaikh Abdul Qadir Jeelani (r) without numbering
+        const jeelaniFacts = [
+            "ശൈഖ് അബ്ദുൽ ഖാദിർ ജീലാനി (റ) ഹിജ്റ 470-ൽ പേർഷ്യയിലെ 'ജീലാൻ' എന്ന സ്ഥലത്താണ് ജനിച്ചത്.",
+            "അവിടുന്ന് തിരുനബി (സ) തങ്ങളുടെ പേരക്കുട്ടിയായ ഹസൻ (റ), ഹുസൈൻ (റ) വഴി കുടുംബപരമ്പര എത്തുന്ന സയ്യിദാണ്.",
+            "ചെറുപ്പത്തിൽ തന്നെ മാതാവ് ഫാത്തിമ (റ) സത്യസന്ധതയുടെ പ്രാധാന്യം പഠിപ്പിച്ച് ബഗ്ദാദിലേക്ക് പഠനത്തിന് അയച്ചു.",
+            "വഴിയിൽ വെച്ച് കവർച്ചക്കാർ പിടികൂടിയപ്പോൾ സത്യം മാത്രം പറഞ്ഞ് അവരുടെ മനസ്സുമാറ്റിയ പ്രശസ്തമായ സംഭവം അവിടുത്തെ ജീവിതത്തിലേതാണ്.",
+            "ബഗ്ദാദിൽ അക്കാലത്തുണ്ടായിരുന്ന പ്രമുഖരായ പണ്ഡിതന്മാരിൽ നിന്നാണ് അവിടുന്ന് ഇസ്ലാമിക വിജ്ഞാനങ്ങൾ നേടിയത്.",
+            "'മുഹ്‌യിദ്ദീൻ' (ദീനിനെ പുനരുജ്ജീവിപ്പിച്ചയാൾ), 'സുൽത്താനുൽ ഔലിയാ' (ഔലിയാക്കളുടെ സുൽത്താൻ) എന്നീ പേരുകളിൽ അവിടുന്ന് അറിയപ്പെടുന്നു.",
+            "ഖാദിരിയ്യ ത്വരീഖത്തിന്റെ സ്ഥാപകനായ മഹാനവർകൾ ലക്ഷക്കണക്കിന് ആളുകളെ സന്മാർഗ്ഗത്തിലേക്ക് നയിച്ചു.",
+            "'അൽ ഫുതൂഹുൽ ഗൈബ്', 'ഗുൻയതുത്ത്വാലിബീൻ' തുടങ്ങിയവ അവിടുത്തെ പ്രസിദ്ധ ഗ്രന്ഥങ്ങളിൽ ചിലതാണ്.",
+            "അവിടുത്തെ മജ്‌ലിസുകളിൽ പതിനായിരക്കണക്കിന് ആളുകൾ പങ്കെടുക്കുകയും വഅളുകൾ കേട്ട് തൗബ ചെയ്തു മടങ്ങുകയും ചെയ്തിരുന്നു.",
+            "ഹിജ്റ 561 റബീഉൽ ആഖിർ 11-ന് ബഗ്ദാദിൽ വെച്ച് വഫാത്തായി. അവിടെ തന്നെയാണ് അവിടുത്തെ മഖാമും സ്ഥിതി ചെയ്യുന്നത്."
+        ];
+
+        let currentFactIndex = 0;
+
+        function initFactSlider() {
+            updateFactDisplay();
+            setInterval(() => {
+                currentFactIndex = (currentFactIndex + 1) % jeelaniFacts.length;
+                updateFactDisplay();
+            }, 5000);
+        }
+
+        function updateFactDisplay() {
+            const factText = document.getElementById('fact-text');
+            if (!factText) return;
+
+            factText.style.opacity = '0';
+            setTimeout(() => {
+                factText.innerText = jeelaniFacts[currentFactIndex];
+                factText.style.opacity = '1';
+            }, 300);
+        }
+
+        window.addEventListener('DOMContentLoaded', initFactSlider);
+
+        // Default Comprehensive Database loaded directly from PDF Hall Tickets
+        let contestantDatabase = {
+            "BTG760": { name: "MANHA FATHIMA", place: "PERUMALABAD", gender: "FEMALE", category: "7 (SENIOR)", examDate: "ONLINE: OCT 15 (8 PM) | OFFLINE: OCT 17 (3 PM)", venue: "MADRASATHUL IMAN, EDAKKOM" },
+            "BTG851": { name: "NUSAIBATHUL MAZNIYYA", place: "PERUMALABAD", gender: "FEMALE", category: "6 (JUNIOR)", examDate: "ONLINE: OCT 15 (8 PM) | OFFLINE: OCT 17 (3 PM)", venue: "MADRASATHUL IMAN, EDAKKOM" },
+            "BTB221": { name: "MUSTHAFA B", place: "HABEEB NAGAR", gender: "MALE", category: "5 (JUNIOR)", examDate: "ONLINE: OCT 15 (8 PM) | OFFLINE: OCT 17 (3 PM)", venue: "MADRASATHUL IMAN, EDAKKOM" },
+            "BTG104": { name: "MUBEENA B", place: "HABEEB NAGAR", gender: "FEMALE", category: "7 (SENIOR)", examDate: "ONLINE: OCT 15 (8 PM) | OFFLINE: OCT 17 (3 PM)", venue: "MADRASATHUL IMAN, EDAKKOM" },
+            "BTG540": { name: "FATHIMA B", place: "HABEEB NAGAR", gender: "FEMALE", category: "9 (SENIOR)", examDate: "ONLINE: OCT 15 (8 PM) | OFFLINE: OCT 17 (3 PM)", venue: "MADRASATHUL IMAN, EDAKKOM" },
+            "BTB129": { name: "MUHAMMAD YASEEN.O", place: "HABEEB NAGAR", gender: "MALE", category: "4 (JUNIOR)", examDate: "ONLINE: OCT 15 (8 PM) | OFFLINE: OCT 17 (3 PM)", venue: "MADRASATHUL IMAN, EDAKKOM" },
+            "BTB627": { name: "MUHAMMED FARHAN", place: "PERUMALABAD", gender: "MALE", category: "4 (JUNIOR)", examDate: "ONLINE: OCT 15 (8 PM) | OFFLINE: OCT 17 (3 PM)", venue: "MADRASATHUL IMAN, EDAKKOM" },
+            "BTG902": { name: "HADIYA. PK", place: "HABEEB NAGAR", gender: "FEMALE", category: "10 (SENIOR)", examDate: "ONLINE: OCT 15 (8 PM) | OFFLINE: OCT 17 (3 PM)", venue: "MADRASATHUL IMAN, EDAKKOM" },
+            "BTG987": { name: "HADIYA AP", place: "EDAKKOM", gender: "FEMALE", category: "8 (SENIOR)", examDate: "ONLINE: OCT 15 (8 PM) | OFFLINE: OCT 17 (3 PM)", venue: "MADRASATHUL IMAN, EDAKKOM" },
+            "BTB456": { name: "HANI PK", place: "HABEEB NAGAR", gender: "MALE", category: "5 (JUNIOR)", examDate: "ONLINE: OCT 15 (8 PM) | OFFLINE: OCT 17 (3 PM)", venue: "MADRASATHUL IMAN, EDAKKOM" },
+            "BTG351": { name: "AYISHA RAZANA AK", place: "PERUMALABAD", gender: "FEMALE", category: "6 (JUNIOR)", examDate: "ONLINE: OCT 15 (8 PM) | OFFLINE: OCT 17 (3 PM)", venue: "MADRASATHUL IMAN, EDAKKOM" }
+        };
+
+        // Parse CSV string safely
+        function parseCSV(text) {
+            const lines = text.split(/\r\n|\n/);
+            const result = [];
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) continue;
+                
+                const row = [];
+                let insideQuotes = false;
+                let cell = '';
+                
+                for (let c = 0; c < line.length; c++) {
+                    const char = line[c];
+                    if (char === '"' || char === "'") {
+                        insideQuotes = !insideQuotes;
+                    } else if (char === ',' && !insideQuotes) {
+                        row.push(cell.trim().replace(/^["']|["']$/g, ''));
+                        cell = '';
+                    } else {
+                        cell += char;
+                    }
+                }
+                row.push(cell.trim().replace(/^["']|["']$/g, ''));
+                result.push(row);
+            }
+            return result;
+        }
+
+        // Fetch Live Data silently from Google Sheet
+        async function fetchSheetData() {
+            try {
+                const response = await fetch(`${sheetCsvUrl}&t=${new Date().getTime()}`);
+                if (!response.ok) throw new Error("Server Sync Failed");
+                const csvData = await response.text();
+                const rows = parseCSV(csvData);
+
+                if (rows.length > 0) {
+                    let startIndex = 0;
+                    if (rows[0] && (rows[0][0].toLowerCase().includes("id") || rows[0][0].toLowerCase().includes("user"))) {
+                        startIndex = 1;
+                    }
+
+                    for (let i = startIndex; i < rows.length; i++) {
+                        const row = rows[i];
+                        if (!row || row.length < 2) continue;
+                        
+                        const userId = (row[0] || '').replace(/[^a-zA-Z0-9]/g, '').trim().toUpperCase();
+                        const name = row[1] || 'N/A';
+                        const place = row[2] || 'PERUMALABAD';
+                        const gender = row[3] || 'N/A';
+                        const category = row[4] || 'N/A';
+                        const examDate = row[5] || 'ONLINE: OCT 15 (8 PM) | OFFLINE: OCT 17 (3 PM)';
+                        const venue = row[6] || 'MADRASATHUL IMAN, EDAKKOM';
+
+                        if (userId) {
+                            contestantDatabase[userId] = { name, place, gender, category, examDate, venue };
+                        }
+                    }
+                }
+            } catch (error) {
+                console.warn("Sheet sync unavailable, using cached database.", error);
+            }
+        }
+
+        fetchSheetData();
+
+        // Target Date: October 15, 2026 at 20:00:00 (8:00 PM)
+        const targetDate = new Date("October 15, 2026 20:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                
+                const quizBox = document.getElementById("quiz-status-box");
+                quizBox.className = "p-4 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs sm:text-sm font-semibold max-w-lg mx-auto flex flex-col items-center justify-center gap-2";
+                quizBox.innerHTML = `
+                    <div class="flex items-center gap-2 text-emerald-400 font-bold">
+                        <i class="fa-solid fa-circle-check text-lg"></i>
+                        <span>ഓൺലൈൻ ടെസ്റ്റ് സജീവമാണ്!</span>
+                    </div>
+                    <a href="#" class="mt-1 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-6 py-2.5 rounded-xl transition-all shadow-lg text-sm inline-block">
+                        ടെസ്റ്റ് ആരംഭിക്കുക (Start Test) <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </a>
+                `;
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Contestant Verification via QR
+        async function verifyScannedData(code) {
+            const cleanCode = code.replace(/[^a-zA-Z0-9]/g, '').trim().toUpperCase();
+            const msg = document.getElementById('user-id-msg');
+            
+            fetchSheetData();
+
+            const student = contestantDatabase[cleanCode];
+
+            if (student) {
+                msg.innerHTML = `
+                    <div class="bg-slate-900/95 border border-brand-500/40 rounded-2xl p-4 text-slate-200 shadow-xl relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 via-brand-500 to-blue-500"></div>
+                        
+                        <!-- Top Header matching PDF Hall Ticket style -->
+                        <div class="text-center pb-2 mb-2 border-b border-slate-800">
+                            <span class="text-[9px] font-extrabold tracking-widest text-brand-400 uppercase">HALL TICKET BOOK TEST '26</span>
+                            <h4 class="text-xs font-bold text-slate-300">SHAIKH JEELANI SHAIKH (R) MEMORIAL COMPETITION</h4>
+                        </div>
+
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="bg-emerald-500/20 text-emerald-400 p-1 rounded text-[10px] font-bold">
+                                    <i class="fa-solid fa-circle-check"></i> Verified
+                                </span>
+                                <span class="text-[10px] text-slate-400 font-bold uppercase">SSF PERUMALABAD UNIT</span>
+                            </div>
+                            <span class="font-mono font-black text-brand-400 bg-brand-500/10 border border-brand-500/30 px-2 py-0.5 rounded text-xs">
+                                USER ID: ${cleanCode}
+                            </span>
+                        </div>
+
+                        <!-- All 7 Fields from Official PDF Hall Ticket -->
+                        <div class="space-y-1.5 text-xs mb-3 bg-slate-800/40 p-3 rounded-xl border border-slate-800">
+                            <div class="grid grid-cols-3 gap-1">
+                                <span class="text-slate-400 font-bold">NAME:</span>
+                                <span class="col-span-2 font-extrabold text-white">${student.name}</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-1">
+                                <span class="text-slate-400 font-bold">PLACE:</span>
+                                <span class="col-span-2 font-semibold text-slate-300">${student.place}</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-1">
+                                <span class="text-slate-400 font-bold">GENDER:</span>
+                                <span class="col-span-2 font-semibold text-slate-300">${student.gender}</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-1">
+                                <span class="text-slate-400 font-bold">CLASS/CAT:</span>
+                                <span class="col-span-2 font-bold text-brand-300">${student.category}</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-1">
+                                <span class="text-slate-400 font-bold">EXAM DATE:</span>
+                                <span class="col-span-2 font-medium text-[11px] text-emerald-300">${student.examDate}</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-1">
+                                <span class="text-slate-400 font-bold">VENUE:</span>
+                                <span class="col-span-2 font-semibold text-amber-200">${student.venue}</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1 border-t border-slate-800">
+                            <span>REG: 2026 EDITION</span>
+                            <span class="text-emerald-400 font-bold">AUTHORIZED PORTAL</span>
+                        </div>
+                    </div>
+                `;
+            } else {
+                msg.innerHTML = `
+                    <div class="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs text-center font-semibold">
+                        <i class="fa-solid fa-circle-xmark text-lg text-rose-400 mb-1 block"></i>
+                        ഹാൾ ടിക്കറ്റ് കോഡ് "${cleanCode}" കണ്ടെത്താനായില്ല. ദയവായി ശരിയായ ക്യു.ആർ കോഡ് സ്കാൻ ചെയ്യുക.
+                    </div>
+                `;
+            }
+        }
+
+        // QR Code Scanner Control
+        let html5QrcodeScanner = null;
+
+        function toggleScanner() {
+            const container = document.getElementById('qr-reader-container');
+            if (container.classList.contains('hidden')) {
+                container.classList.remove('hidden');
+                startScanner();
+            } else {
+                stopScanner();
+            }
+        }
+
+        function startScanner() {
+            if (!html5QrcodeScanner) {
+                html5QrcodeScanner = new Html5Qrcode("reader");
+            }
+
+            const config = { fps: 10, qrbox: { width: 220, height: 220 } };
+
+            html5QrcodeScanner.start(
+                { facingMode: "environment" },
+                config,
+                (decodedText) => {
+                    stopScanner();
+                    const cleanCode = decodedText.trim().toUpperCase();
+                    verifyScannedData(cleanCode);
+                },
+                (errorMessage) => {
+                    // Scanning...
+                }
+            ).catch(err => {
+                console.error("Camera access failed", err);
+            });
+        }
+
+        function stopScanner() {
+            if (html5QrcodeScanner) {
+                html5QrcodeScanner.stop().then(() => {
+                    document.getElementById('qr-reader-container').classList.add('hidden');
+                }).catch(() => {
+                    document.getElementById('qr-reader-container').classList.add('hidden');
+                });
+            } else {
+                document.getElementById('qr-reader-container').classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
+```
